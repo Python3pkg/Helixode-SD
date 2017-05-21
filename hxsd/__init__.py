@@ -37,7 +37,7 @@ class serviceFinder(object):
         Search for services using multicast sends out a request for services
         of the specified name and then waits and gathers responses
         """
-        print("Searching for service '%s'" % serviceName)
+        print(("Searching for service '%s'" % serviceName))
         self.sock.settimeout(5)
         msg = "|".join(("findservice", serviceName))
         self.sock.sendto(msg.encode('ascii'), self.group)
@@ -142,7 +142,7 @@ def main():
             print("usage: hxsd search [service]")
             exit()
         finder = serviceFinder('224.3.29.110', 9990)
-        print(finder.search(sys.argv[2]))
+        print((finder.search(sys.argv[2])))
 
 if __name__ == "__main__":
     main()
